@@ -1,4 +1,3 @@
-
 import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from "react-router-dom"
 import Indexpage from './pages/Indexpage'
 import Productlistpage from './pages/Productlistpage'
@@ -11,6 +10,10 @@ import Adminhomepage from './pages/Adminhomepage'
 import MainLayout from "./Layout/MainLayout"
 import AuthLayout from "./Layout/AuthLayout"
 import UserReviewsPage from "./pages/UserReviewsPage"
+import Viewreviewpage from "./pages/Viewreviewpage"
+import Editproductpage from "./pages/Editproductpage"
+import ProductsPage from "./pages/ProductsPage"
+import ReviewDisplayPage, { prodLoader } from "./pages/ReviewDisplayPage"
 
 
 
@@ -34,9 +37,12 @@ function App() {
                   <Route path="/sign-up" element={<Signuppage />} />
                   <Route path="/login" element={<Loginpage />} /> 
                   <Route path="/products" element={<Productlistpage />} />
-                  <Route path="/all-products" element={<Productlistpage />} />
+                  <Route path="/all-products" element={<ProductsPage/>} />
                   <Route path="/add-product" element={<Addproductpage />} />
-                  <Route path="/view-product/:id" element={<Addreviewpage/>} loader={productLoader} />
+                  <Route path="/update-product/:id" element={<Editproductpage />} />
+                  <Route path="/view-product/:id" element={<Addreviewpage />} loader={productLoader} />
+                  <Route path="/product-reviews/:id" element={<Viewreviewpage />} loader={productLoader} />
+                  <Route path="/review-display/:id" element={<ReviewDisplayPage/>} loader={prodLoader} />
                   <Route path="/user-home" element={<Userprofilepage/>} />
                   <Route path="/admin-home" element={<Adminhomepage />} />
                   <Route path="/user-home/reviewed-products" element={<UserReviewsPage/>} />

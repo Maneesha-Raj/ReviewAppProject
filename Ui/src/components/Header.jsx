@@ -1,3 +1,4 @@
+
 // Header component
 
 
@@ -24,7 +25,7 @@ const Header = () => {
 
     setTimeout(() => {
         setShowHeading(false);
-    }, 2000);
+    }, 5000);
 
 
     if (selectedCategory) {
@@ -75,7 +76,7 @@ const Header = () => {
                 >
                 Search
                 </button>
-            </div>
+              </div>
 
 
         <div className="text-white font-semibold">
@@ -103,6 +104,8 @@ const Header = () => {
 };
 
 export default Header;
+
+
 
 
 

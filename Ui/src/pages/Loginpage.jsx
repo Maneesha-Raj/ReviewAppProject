@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
 import { Link, useNavigate } from "react-router-dom";
@@ -90,7 +91,7 @@ const Loginpage = () => {
             <span className="text-gray-600">New to Revo?</span>
             <a href="/sign-up" className="text-sky-600 hover:underline ml-1">Get Started</a>
             <div className="mt-4">
-              <a href="#" className="text-sky-600 hover:underline">Forgot Password?</a>
+              <a href="/" className="text-sky-600 hover:underline">Go Back</a>
             </div>
           </div>
         </form>
@@ -114,7 +115,21 @@ const getUserType = () => {
     const userType = decoded.userType;
     console.log("usertype", userType);
     return userType;
-  };
+};
+  
+const getUserEmail = () => {
+  const authToken = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("Authtoken"))
+      ?.split("=")[1];
+  console.log("document.cookie value", authToken);
+
+  const decoded = jwtDecode(authToken);
+  console.log("decoded", decoded);
+  const userEmail = decoded.userEmail;
+  console.log("useremail", userEmail);
+  return userEmail;
+};
 
 
-export {Loginpage as default, getUserType};
+export {Loginpage as default, getUserType,getUserEmail};

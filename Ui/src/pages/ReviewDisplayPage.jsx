@@ -1,16 +1,17 @@
 
-//View Review Page------------
-
-
-
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Reviewcard from '../components/Reviewcard';
 import { useLoaderData } from 'react-router-dom';
+import { productLoader } from './Viewreviewpage';
+import HeaderComponent from '../components/HeaderComponent';
+import Footer from '../components/Footer';
+import dummyImage from '../assets/images/placeholder.jpg'
 
-const Viewreviewpage = () => {
-  const { id } = useParams();
+const ReviewDisplayPage = () => {
+
+    const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [reviews, setReviews] = useState([]);
   const navigate = useNavigate();
@@ -18,11 +19,11 @@ const Viewreviewpage = () => {
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
-        const response = await fetch(`/api/products/${id}`);
+        const response = await fetch(`/api/all-products/${id}`);
         if (response.ok) {
           const data = await response.json();
           setProduct(data);
-          setReviews(data.reviews || []); 
+          setReviews(data.reviews || []); // Use an empty array if reviews are undefined
         } else {
           throw new Error('Failed to fetch product details');
         }
@@ -32,18 +33,21 @@ const Viewreviewpage = () => {
     };
 
     if (id) {
-      fetchProductDetails();
+      fetchProductDetails(product);
     }
   }, [id]);
 
+
+
   return (
-    <>
-      <Header showSearchBar={false} />
+      <>
+          <HeaderComponent />
       <form className="mx-52 my-12 bg-white p-24 shadow-md h-full max-h-fit">
         <p className="text-xl font-semibold p-6">{product?.productName || 'Loading...'}</p>
         <div className="grid grid-cols-2 gap-8">
-          <img src={product?.imageUrl || 'dummyImage'} alt="Product" className="h-48 border border-solid" />
-          <div>
+          {/* <img src={product?.imageUrl || 'dummyImage'} alt="Product" className="h-48 border border-solid" /> */}
+          <img src={ dummyImage} alt="Product" className="h-48 border border-solid rounded-lg" />
+        <div>
             <p className="text-3xl font-sans font-semibold">{product?.productName}</p>
             <p className="text-2xl font-bold">{product?.description}</p>
             <p className="text-xl font-semibold">Price: {product?.price}</p>
@@ -51,11 +55,11 @@ const Viewreviewpage = () => {
           
         </div>
         <br />
-        
-
-        <Link to={`/update-product/${id}`}>
-          <button className="rounded-full w-24 float-end bg-cyan-500 px-4 py-2 hover:outline-double hover:outline-cyan-500">Edit</button>
+        <Link to='/login'>
+          <button className="rounded-full float-right bg-cyan-500 px-4 py-2 hover:outline-double hover:outline-cyan-500">Add a Review</button>
         </Link>
+
+        
         <br />
 
         <p className="text-xl font-bold">Customer Ratings</p>
@@ -67,42 +71,28 @@ const Viewreviewpage = () => {
                 <Reviewcard key={index} review={review} />
               ))
             ) : (
-              <p>No ratings or reviews available!</p>
+              <p>No reviews available</p>
             )}
           </div>
         </div>
-      </form>
-    </>
-  );
-};
+          </form>
+        
+          
+          <Footer />
 
-
-
-
-const productLoader = async ({ params }) => {
-  const res = await fetch(`/api/products/${params.id}`);
-  const data = await res.json();
-  return data;
+      
+      
+      
+      
+      </>
+  )
 }
 
+const prodLoader = async ({ params }) => {
+    const res = await fetch(`/api/all-products/${params.id}`);
+    const data = await res.json();
+    return data;
+  }
+  
 
-const getUserEmail = () => {
-const authToken = document.cookie
-  .split("; ")
-  .find((row) => row.startsWith("Authtoken"))
-  ?.split("=")[1];
-console.log("document.cookie value", authToken);
-
-const decoded = jwtDecode(authToken);
-console.log("decoded", decoded);
-const userEmail = decoded.userEmail;
-console.log("useremail", userEmail);
-return userEmail;
-};
-
-export { Viewreviewpage as default, getUserEmail,productLoader };
-
-
-
-
-
+export { ReviewDisplayPage as default,prodLoader}

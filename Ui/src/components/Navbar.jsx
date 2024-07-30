@@ -12,7 +12,7 @@ const Navbar = () => {
             <div className="rounded-lg mx-4 my-4 bg-white shadow-md h-20 flex items-center justify-between p-4">
                   <img src={Logo} alt="Logo" className="h-12 w-auto" />
                   <div className="flex items-center space-x-8">
-                    <Link to="/" className="text-lg font-bold hover:underline">
+                    <Link to="/all-products" className="text-lg font-bold hover:underline">
                       Products
                     </Link>
                     <Link to="/sign-up">
@@ -34,4 +34,5 @@ const Navbar = () => {
 }
 
 export default Navbar
+
 
