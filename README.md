@@ -47,4 +47,4 @@ The application has two main types of users:
 ## Links:
 - Demo Video link : https://drive.google.com/file/d/1bw5WrFzQHJ7lqOqikR2IMikJwqPyQgd_/view?usp=drive_link
 - Workflow diagram link : https://drive.google.com/file/d/1Z6FeUn8_tFqJaxobW3GE7hLCPwVaRrsk/view?usp=drive_link
-
+- Documentation : https://drive.google.com/file/d/1bd0S3NiggWzdJUhkUVej7DT0ap6FSYHj/view?usp=sharing
