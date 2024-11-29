@@ -18,6 +18,8 @@ const UserReviewsPage = () => {
         const reviewedProduct = location.state?.reviewedProduct;
         
         const userEmail = getUserEmail(); 
+
+        // const imageUrl = product?.imagePath ? `/api/${product.imagePath}` : dummyImage;
     
 
 

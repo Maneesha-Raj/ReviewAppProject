@@ -22,6 +22,8 @@ const Addreviewpage = () => {
     const [averageRating, setAverageRating] = useState(0);
     const userEmail = getUserEmail();
 
+    const imageUrl = product?.imagePath ? `/api/${product.imagePath}` : dummyImage;
+
     useEffect(() => {
         const fetchProduct = async () => {
             try {
@@ -112,14 +114,14 @@ const Addreviewpage = () => {
                  <p className="text-3xl font-sans font-semibold">{product.productName}</p>
                 <div className='flex gap-6'>
                     <div>
-                        <img src={dummyImage} alt="Product" className="h-48 border border-none rounded-lg" />
+                        <img src={imageUrl} alt="Product" className="h-48 max-w-fit border border-none rounded-lg" />
                     </div>
                     
                     <div>
                        
-                        <p className="text-xl font-bold">Category :{product.category}</p>
-                        <p className="text-xl font-bold">{product.description}</p>
-                        <p className="text-xl font-semibold">Price: {product.price}</p>
+                        <p className="text-lg font-sans font-bold">Category :{product.category}</p><br />
+                        <p className="text-lg font-sans font-bold">{product.description}</p><br />
+                        <p className="text-3xl font-sans text-red-500">Price: {product.price}</p>
                     </div>
                 </div>
 

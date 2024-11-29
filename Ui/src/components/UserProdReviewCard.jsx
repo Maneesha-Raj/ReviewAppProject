@@ -10,6 +10,8 @@ const UserProdReviewCard = ({ product }) => {
  
   // const reviewss = product.reviews.find(review => review.userDetails === product.userDetails) || {}; // Find review by the current user
 
+  const imageUrl = product?.imagePath ? `/api/${product.imagePath}` : dummyImage;
+
 
  
 const review = product.reviews[product.reviews.length - 1] || {}; 
@@ -26,7 +28,7 @@ return (
   <div className="my-8 text-md">
     <div className="border border-gray-300 rounded-md p-4 bg-white">
       <div className="flex items-center mb-4">
-        <img src={dummyImage} alt="Product" className="h-28 border border-solid" />
+        <img src={imageUrl} alt="Product" className="h-28 border border-solid" />
         <div className="ml-4">
           <p className="text-md font-semibold">{product.productName}</p>
           <p className="text-md font-semibold">Category: {product.category}</p>

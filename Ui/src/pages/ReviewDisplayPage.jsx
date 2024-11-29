@@ -16,6 +16,9 @@ const ReviewDisplayPage = () => {
   const [reviews, setReviews] = useState([]);
   const navigate = useNavigate();
 
+  const imageUrl = product?.imagePath ? `/api/${product.imagePath}` : dummyImage;
+
+
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
@@ -46,7 +49,7 @@ const ReviewDisplayPage = () => {
         <p className="text-xl font-semibold p-6">{product?.productName || 'Loading...'}</p>
         <div className="grid grid-cols-2 gap-8">
           {/* <img src={product?.imageUrl || 'dummyImage'} alt="Product" className="h-48 border border-solid" /> */}
-          <img src={ dummyImage} alt="Product" className="h-48 border border-solid rounded-lg" />
+          <img src={ imageUrl} alt="Product" className="h-48 border border-solid rounded-lg" />
         <div>
             <p className="text-3xl font-sans font-semibold">{product?.productName}</p>
             <p className="text-2xl font-bold">{product?.description}</p>

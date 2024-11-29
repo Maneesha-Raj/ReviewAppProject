@@ -10,6 +10,7 @@ const Prodcard = ({product}) => {
   console.log(product);
 
 
+  const imageUrl = product?.imagePath ? `/api/${product.imagePath}` : dummyImage;
 
 
   return (
@@ -17,7 +18,7 @@ const Prodcard = ({product}) => {
       
       <div className='border border-solid border-gray-400 rounded-lg p-4 flex flex-col'>
       <h2 className='text-xl font-semibold mb-2'>{product.productName}</h2>
-      <img src={dummyImage} alt="product thumbnail" className='w-full h-40 object-cover rounded-md mb-2' />
+      <img src={imageUrl} alt="product thumbnail" className='w-full h-40 object-cover rounded-md mb-2' />
       <p className='text-black mb-2'>{product.description}</p>
 
       <div className="flex justify-between items-center">

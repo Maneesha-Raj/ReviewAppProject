@@ -8,12 +8,15 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Reviewcard from '../components/Reviewcard';
 import { useLoaderData } from 'react-router-dom';
+import dummyImage from '../assets/images/placeholder.jpg'; 
 
 const Viewreviewpage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [reviews, setReviews] = useState([]);
   const navigate = useNavigate();
+
+  const imageUrl = product?.imagePath ? `/api/${product.imagePath}` : dummyImage;
 
   useEffect(() => {
     const fetchProductDetails = async () => {
@@ -40,13 +43,13 @@ const Viewreviewpage = () => {
     <>
       <Header showSearchBar={false} />
       <form className="mx-52 my-12 bg-white p-24 shadow-md h-full max-h-fit">
-        <p className="text-xl font-semibold p-6">{product?.productName || 'Loading...'}</p>
-        <div className="grid grid-cols-2 gap-8">
-          <img src={product?.imageUrl || 'dummyImage'} alt="Product" className="h-48 border border-solid" />
+        <p className="text-xl font-sans font-semibold p-6">{product?.productName || 'Loading...'}</p>
+        <div className="grid grid-cols-2 ">
+          <img src={imageUrl} alt="Product" className="max-h-96 max-w-fit border border-none" />
           <div>
-            <p className="text-3xl font-sans font-semibold">{product?.productName}</p>
-            <p className="text-2xl font-bold">{product?.description}</p>
-            <p className="text-xl font-semibold">Price: {product?.price}</p>
+            <p className="text-3xl font-sans font-semibold">{product?.productName}</p><br />
+            <p className="text-2xl font-sans">{product?.description}</p><br />
+            <p className="text-xl font-sans text-red-500">Price: {product?.price}</p>
           </div>
           
         </div>
