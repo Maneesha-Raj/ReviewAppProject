@@ -47,13 +47,13 @@ const ReviewDisplayPage = () => {
           <HeaderComponent />
       <form className="mx-52 my-12 bg-white p-24 shadow-md h-full max-h-fit">
         <p className="text-xl font-semibold p-6">{product?.productName || 'Loading...'}</p>
-        <div className="grid grid-cols-2 gap-8">
+        <div className="grid grid-cols-2 gap-2">
           {/* <img src={product?.imageUrl || 'dummyImage'} alt="Product" className="h-48 border border-solid" /> */}
-          <img src={ imageUrl} alt="Product" className="h-48 border border-solid rounded-lg" />
+          <img src={ imageUrl} alt="Product" className="h-96 max-w-fit border border-none rounded-lg" />
         <div>
-            <p className="text-3xl font-sans font-semibold">{product?.productName}</p>
-            <p className="text-2xl font-bold">{product?.description}</p>
-            <p className="text-xl font-semibold">Price: {product?.price}</p>
+            <p className="text-3xl font-sans font-semibold">{product?.productName}</p><br />
+            <p className="text-2xl font-bold">{product?.description}</p><br />
+            <p className="text-xl font-sans text-red-500">Price: {product?.price}</p>
           </div>
           
         </div>

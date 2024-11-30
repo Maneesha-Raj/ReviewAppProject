@@ -13,9 +13,32 @@ const Indexpage = () => {
                 <Navbar/>
 
                 <div className="h-96  bg-gradient-to-r from-orange-400 via-orange-500 to-orange-400">
-                    <p className="text-white font-extrabold font-sans text-5xl text-center p-24">"Review, Reflect, Decide: Your Trusted <br /> Guide to Honest Feedback"</p>
+                    <p className=" text-white bg-clip-text font-extrabold font-sans text-5xl text-center p-24 animated-text">"Review, Reflect, Decide: Your Trusted <br /> Guide to Honest Feedback"</p>
                     
                 </div>
+
+                <style jsx>
+                        {`
+                        .animated-text {
+                            background: linear-gradient(45deg,white,transparent,yellow, white);
+                            background-size: 300% 300%;
+                            -webkit-background-clip: text; /* Clips the gradient to text */
+                            -webkit-text-fill-color: transparent; /* Makes the text itself transparent */
+                            animation: text-flow 3s infinite linear;
+                        }
+
+                        @keyframes text-flow {
+                            0% {
+                            background-position: 0% 0%;
+                            }
+                            100% {
+                            background-position: 100% 100%;
+                            }
+                        }
+                        `}
+                </style>
+
+
                 <div className="bg-black ">
                     <br />
                     <br />

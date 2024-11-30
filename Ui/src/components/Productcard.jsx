@@ -2,7 +2,7 @@
 
 //Productcard.jsx
 
-import React from 'react';
+import React, {useState} from 'react';
 import { getUserType } from '../pages/Loginpage';
 import { Link } from 'react-router-dom';
 import dummyImage from '../assets/images/placeholder.jpg'; 
@@ -14,6 +14,20 @@ const Productcard = ({ product }) => {
 
   // Use imagePath instead of image
   const imageUrl = product?.imagePath ? `/api/${product.imagePath}` : dummyImage;
+
+  const [showFullDescription, setShowFullDescription] = useState(false);
+
+  let description = product.description;
+
+  if (!showFullDescription) {
+    description = description.substring(0, 100) + "  ..."
+  }
+
+  const toggleText = () => {
+    setShowFullDescription(!showFullDescription)
+  }
+
+
 
   const deleteProduct = async () => {
     const confirm = window.confirm('Sure want to delete?');
@@ -41,7 +55,9 @@ const Productcard = ({ product }) => {
         alt="product thumbnail"
         className="max-w-full max-h-full object-cover rounded-md mb-2"
       />
-      <p className="text-black mb-2">{product.description}</p>
+      <p className="text-black mb-2">{description}</p>
+
+      <button onClick={toggleText} className='flex w-full ml-10 mb-5 text-blue-500 hover:text-blue-800'>{showFullDescription ? ' Less': '...'}</button>
 
       <div className="flex justify-between items-center">
         {userType === 'user' && (

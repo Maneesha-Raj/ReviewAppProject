@@ -1,4 +1,103 @@
-# REVO:REVIEW APP
+
+# 🌟 REVO: REVIEW APP
+
+## 📄 PROJECT OVERVIEW
+
+**REVO: REVIEW APP** is a modern web application built with **React.js** to allow users to view and review products. The application supports two user roles: **Admin** and **Registered User**, with tailored functionalities for managing products and reviews.  
+
+---
+
+## 🔑 FEATURES
+
+### 👤 Registered User Features
+- **Search Products:** Filter products by category.
+- **View Product Details:** See detailed information about products.
+- **Write Reviews:** Add reviews for products.
+- **View User Reviews:** Manage and view reviews written by the user.
+
+### 🛠️ Admin Features
+- **Add Products:** Add new products through an intuitive form.
+- **Search Products:** Filter and search for products by category.
+- **Delete Products:** Remove unnecessary or outdated products.
+- **View Product Details:** View detailed product information.
+
+---
+
+## ⚙️ TECHNOLOGIES USED
+
+### **Frontend:**
+- React.js
+- Tailwind CSS
+- React Router
+
+### **Backend:**
+- Node.js
+- Express.js
+
+### **Database:**
+- MongoDB
+
+---
+
+## 🛠️ OTHER TOOLS
+
+- **Docker:** Simplifies app deployment and environment setup.
+- **JWT Authentication:** Ensures secure user sessions and authentication.
+- **Reusable UI Components:** Maintain consistency and ease of development.
+
+---
+
+## 👥 USER ROLES AND PERMISSIONS
+
+| **Role**         | **Permissions**                                                                 |
+|-------------------|---------------------------------------------------------------------------------|
+| **Admin**         | Add, delete, and manage products, and view product details.                    |
+| **Registered User** | Search and review products, view detailed information, and manage own reviews.|
+
+---
+
+## 📌 FUTURE ENHANCEMENTS
+
+- **Advanced Product Filtering:** Introduce filters based on price, ratings, and categories.
+- **Rating System:** Aggregate and display average ratings for products.
+- **Admin Dashboard:** Add insights like total products, reviews, and user activities.
+- **Email Notifications:** Notify users of updates or important events.
+
+---
+
+## 🚀 GETTING STARTED
+
+### **Prerequisites**
+1. Install Docker on your system.
+
+### **Setup Steps**
+
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/Maneesha-Raj/REVIEW_APP_DOCKER.git
+   cd REVIEW_APP_DOCKER
+
+## How to install:
+- git clone  https://github.com/Maneesha-Raj/REVIEW_APP_DOCKER.git
+- To run: `docker compose up --build`
+- You can access the application in your web browser at : `http://localhost:3000`
+
+## Links:
+- Demo Video link : https://drive.google.com/file/d/1bw5WrFzQHJ7lqOqikR2IMikJwqPyQgd_/view?usp=drive_link
+- Workflow diagram link : https://drive.google.com/file/d/1Z6FeUn8_tFqJaxobW3GE7hLCPwVaRrsk/view?usp=drive_link
+- Documentation : https://drive.google.com/file/d/1bd0S3NiggWzdJUhkUVej7DT0ap6FSYHj/view?usp=sharing
+- PPT : https://drive.google.com/file/d/1sebTn-1Rx9TzY9W2-NokjCg927UVxv4Q/view?usp=drive_link
+
+
+
+
+
+
+
+
+<!-- //----------------------------------------------------------------------------------------- -->
+
+<!-- # REVO:REVIEW APP
 
 This application allows users to view and review products, with different functionalities based on user roles: Admin, and User. The Review App is a web application built with React.js. It allows users to view, search, and review products.
 
@@ -48,4 +147,4 @@ The application has two main types of users:
 - Demo Video link : https://drive.google.com/file/d/1bw5WrFzQHJ7lqOqikR2IMikJwqPyQgd_/view?usp=drive_link
 - Workflow diagram link : https://drive.google.com/file/d/1Z6FeUn8_tFqJaxobW3GE7hLCPwVaRrsk/view?usp=drive_link
 - Documentation : https://drive.google.com/file/d/1bd0S3NiggWzdJUhkUVej7DT0ap6FSYHj/view?usp=sharing
-- PPT : https://drive.google.com/file/d/1sebTn-1Rx9TzY9W2-NokjCg927UVxv4Q/view?usp=drive_link
+- PPT : https://drive.google.com/file/d/1sebTn-1Rx9TzY9W2-NokjCg927UVxv4Q/view?usp=drive_link -->
