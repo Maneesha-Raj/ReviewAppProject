@@ -8,7 +8,6 @@ import { productLoader } from '../pages/Addreviewpage';
 
 const UserProdReviewCard = ({ product }) => {
  
-  // const reviewss = product.reviews.find(review => review.userDetails === product.userDetails) || {}; // Find review by the current user
 
   const imageUrl = product?.imagePath ? `/api/${product.imagePath}` : dummyImage;
 

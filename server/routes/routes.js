@@ -9,37 +9,6 @@ const verifyToken = require("../middleware/authMiddleware");
 const multer = require('multer');
 const path = require('path');
 
-//--------------------------------------------------------------------------------------
-// // Serve static files from the "uploads" directory
-// app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
-//--------------------------------------------------------------------------------------------
-
-// // Configure multer for file storage
-// const storage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, 'uploads/'); // Specify the upload folder
-//   },
-//   filename: (req, file, cb) => {
-//     cb(null, Date.now() + path.extname(file.originalname)); // Save with timestamp and original file extension
-//   }
-// });
-
-// const upload = multer({
-//   storage: storage,
-//   fileFilter: (req, file, cb) => {
-//     const fileTypes = /jpeg|jpg|png/;
-//     const extname = fileTypes.test(path.extname(file.originalname).toLowerCase());
-//     const mimetype = fileTypes.test(file.mimetype);
-//     if (extname && mimetype) {
-//       cb(null, true);
-//     } else {
-//       cb(new Error("Only .jpeg, .jpg, and .png format allowed!"));
-//     }
-//   }
-// });
-
-
 
 
 router.get("/all-products", async (req, res) => {
@@ -117,54 +86,6 @@ router.post("/products", upload.single('image'), async (req, res) => {
   }
 });
 
-
-
-//---------------------------------------------------------------------
-
-
-// // Add Product with Image Upload
-// router.post("/products", upload.single('productImage'), async (req, res) => {
-//   try {
-//     const { productName, productId, category, description, price } = req.body;
-//     const imagePath = req.file ? req.file.path : null; // Store image path if file is uploaded
-
-//     // Create new product with image path
-//     const newProduct = {
-//       productName,
-//       productId,
-//       category,
-//       description,
-//       price,
-//       imagePath
-//     };
-
-//     const result = await products.create(newProduct);
-//     res.status(201).json(result);
-//     console.log(result);
-//   } catch (error) {
-//     console.log(error);
-//     res.status(500).json({ message: "Error adding product" });
-//   }
-// });
-
-
-
-
-//-------------------------------------------------------------------
-
-// router.post("/products", async (req, res) => {
-//   try {
-//     const data = req.body;
-//     const result = await products.create(data);
-//     res.status(201).json(result);
-//     console.log(result);
-//   } catch (error) {
-//     console.log(error);
-//     res.status(500).json();
-//   }
-// });
-
-//---------------------------------------------------
 
 router.put("/products/:id", async (req, res) => {
   const data = req.body;
